@@ -29,4 +29,12 @@ jobs:
         run: yarn run test
 
       - name: pack
-        run: yarn pack
+        run: yarn pack --filename=sitemark-exifr.tgz
+
+      - name: Release
+        uses: softprops/action-gh-release@v1
+        with:
+          files: |
+            sitemark-exifr.tgz
+          
+
