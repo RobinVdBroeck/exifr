@@ -4,10 +4,16 @@ Fork from: https://github.com/MikeKovarik/exifr version 2.0.0
 
 ## Installation
 
-TODO: fill in with example
+Add a dependency to package.json and rerun your package manager.
 ```
-npm install exifr
+{
+  "dependency": {
+    "@sitemark/exifr": "https://github.com/sitemark/exifr/releases/download/v2.0.0/sitemark-exifr.tgz"
+  }
+}
 ```
+
+To update, just change the path and rerun your package manager.
 
 ## Features
 
