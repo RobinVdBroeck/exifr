@@ -5,14 +5,15 @@ on:
     workflows: ["CI"]
     types:
       - completed
-  # push:
-  #   branches:
-  #     - "main"
+  push:
+    branches:
+      - "main"
+      - "exifr-actions"
 
 concurrency: ${{ github.workflow }}-${{ github.ref }}
 
 jobs:
-  publish:
+  release:
     if: ${{ github.event.workflow_run.conclusion == 'success' }}
     runs-on: ubuntu-latest
     steps:
