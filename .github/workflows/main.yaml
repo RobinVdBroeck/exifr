@@ -3,7 +3,7 @@ name: CI
 on:
   push:
     branches:
-      - "**"
+      - "!master"
 
 jobs:
   build:
@@ -32,3 +32,4 @@ jobs:
         run: yarn install --frozen-lockfile
       - name: test
         run: yarn run test
+

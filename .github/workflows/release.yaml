@@ -1,19 +1,15 @@
 name: Release
 
 on:
-  workflow_run:
-    workflows: ["CI"]
-    types:
-      - completed
+  push:
     branches:
-      - "main"
+      - "master"
       - "exifr-actions"
 
 concurrency: ${{ github.workflow }}-${{ github.ref }}
 
 jobs:
   publish:
-    if: ${{ github.event.workflow_run.conclusion == 'success' }}
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -28,6 +24,9 @@ jobs:
 
       - name: build
         run: yarn run build
+
+      - name: test
+        run: yarn run test
 
       - name: pack
         run: yarn pack --filename sitemark-exifr-${{ github.ref }}
